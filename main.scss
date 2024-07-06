@@ -1,0 +1,140 @@
+@use "./mixins" as *;
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --dark-blue: hsl(213, 19%, 18%);
+  --very-dark-blue: hsl(216, 12%, 8%);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 15px;
+  font-family: "Overpass", sans-serif;
+  background-color: var(--very-dark-blue);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.component {
+  background-color: var(--dark-blue);
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+}
+@media (max-width: 767px) {
+  .component {
+    width: 300px;
+  }
+}
+.component img {
+  padding: 15px;
+  background-color: #a3a3a32e;
+  border-radius: 50%;
+}
+.component h3 {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+.component p {
+  color: var(--light-grey);
+  line-height: 1.6;
+}
+.component ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.component ul li {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a3a3a32e;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media (max-width: 767px) {
+  .component ul li {
+    width: 40px;
+    height: 40px;
+  }
+}
+.component ul li:hover {
+  background-color: var(--orange);
+  color: black;
+}
+.component ul li.choose {
+  background-color: var(--white);
+  color: black;
+}
+.component input {
+  margin-top: 30px;
+  width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: var(--orange);
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+.component input:hover {
+  background-color: white;
+}
+// Thanks
+.thank-you {
+  @extend %main-component;
+  text-align: center;
+  width: 400px;
+  display: none;
+}
+@media (max-width: 767px) {
+  .thank-you {
+    width: 300px;
+  }
+}
+.thank-you.show {
+  display: block;
+}
+.thank-you img {
+  margin-top: 20px;
+}
+.thank-you span.rezult {
+  display: block;
+  margin: 30px auto 30px;
+  color: var(--orange);
+  padding: 10px 15px;
+  background-color: #a3a3a32e;
+  width: fit-content;
+  border-radius: 20px;
+}
+.thank-you h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.thank-you p {
+  color: var(--light-grey);
+  line-height: 1.6;
+}
+span.error-msg {
+  width: fit-content;
+  display: block;
+  margin: 10px auto 0;
+  color: #ffa099;
+  display: none;
+}
