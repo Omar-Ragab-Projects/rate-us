@@ -1,0 +1,2 @@
+# rate-us
+Rate Component
